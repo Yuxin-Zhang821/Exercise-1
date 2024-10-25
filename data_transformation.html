@@ -361,22 +361,22 @@ display: none;
 <pre><code>## The following objects are masked from &#39;package:base&#39;:
 ## 
 ##     intersect, setdiff, setequal, union</code></pre>
-<pre class="r"><code>max_weight_by_feed &lt;- function(data) {
-   data %&gt;%
+<pre class="r"><code>min_weight_by_feed &lt;- function(data_new) {
+   data_new %&gt;%
    group_by(feed) %&gt;%
-   summarise(min_weight=max(weight, na.rm = TRUE))
+   summarise(min_weight=min(weight, na.rm = TRUE))
   } 
-transformed_data &lt;- max_weight_by_feed(chickwts)
+transformed_data &lt;- min_weight_by_feed(chickwts)
 print(transformed_data)</code></pre>
 <pre><code>## # A tibble: 6 × 2
 ##   feed      min_weight
 ##   &lt;fct&gt;          &lt;dbl&gt;
-## 1 casein           404
-## 2 horsebean        227
-## 3 linseed          309
-## 4 meatmeal         380
-## 5 soybean          329
-## 6 sunflower        423</code></pre>
+## 1 casein           216
+## 2 horsebean        108
+## 3 linseed          141
+## 4 meatmeal         153
+## 5 soybean          158
+## 6 sunflower        226</code></pre>
 
 
 
